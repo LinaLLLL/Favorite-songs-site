@@ -1,0 +1,31 @@
+﻿@model List<FavoriteSongs.Models.SongWithVotes>
+
+
+<h1>Список песен и количество голосов</h1>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Исполнитель</th>
+                <th>Количество голосов</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var song in Model)
+            {
+                <tr>
+                    <td>@song.Title</td>
+                    <td>@song.Artist</td>
+                    <td>@song.VoteCount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Песни не найдены.</p>
+}
